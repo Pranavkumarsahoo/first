@@ -20,14 +20,14 @@ int maxi(TreeNode* root){
   void ans(TreeNode* root , int &sum , int depth , int depth1){
     if(root==nullptr)return; 
     ans(root->left,sum,depth,depth1+1);
-    if(depth-1==depth1)sum+=root->val;
+    if(depth==depth1)sum+=root->val;
     ans(root->right,sum,depth,depth1+1);
     
 
   }
     int deepestLeavesSum(TreeNode* root) {
         int sum = 0 ;
-        int depth=maxi(root);
+        int depth=maxi(root)-1;
         ans(root,sum,depth,0);
         return sum;
     }
